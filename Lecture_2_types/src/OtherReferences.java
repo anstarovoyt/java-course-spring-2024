@@ -9,8 +9,7 @@ public class OtherReferences {
     private static WeakReference<StringBuilder> createRef() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(42);
-        var stringBuilderWeakReference = new WeakReference<>(stringBuilder);
-        return stringBuilderWeakReference;
+        return new WeakReference<>(stringBuilder);
     }
 
     private static void printRef(WeakReference<StringBuilder> stringBuilderWeakReference) {
