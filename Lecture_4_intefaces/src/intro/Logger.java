@@ -37,6 +37,7 @@ class FileLogger implements Logger {
 }
 
 class MainIntro {
+
     private static Logger getLogger() {
         //complex check of configuration
         return new ConsoleLogger();
