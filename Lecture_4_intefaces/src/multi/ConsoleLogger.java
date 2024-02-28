@@ -17,8 +17,12 @@ public class ConsoleLogger
 
 class MainMulti {
     public static void main(String[] args) {
-        LevelAwareLogger consoleLogger = new ConsoleLogger();
-        consoleLogger.log(LogLevel.INFO, "test1");
-        consoleLogger.log(LogLevel.ERROR, "test2");
+        LevelAwareLogger levelLogger = new ConsoleLogger();
+        levelLogger.log("test1");
+        levelLogger.log(LogLevel.ERROR, "test2");
+
+        Logger logger = new ConsoleLogger();
+        logger.log("test1");
+        logger.log(LogLevel.ERROR, "test2");
     }
 }
