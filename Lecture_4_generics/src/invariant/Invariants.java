@@ -7,7 +7,7 @@ public class Invariants {
         Ref<CharSequence> refCharSequence = new Ref<>();
         refCharSequence.setValue("hello1");
 
-        Ref<String> refString = new Ref<>();
+        Ref<? super String> refString = new Ref<>();
         refString.setValue("hello2");
 //        refCharSequence = refString; //error
 //        refString = refCharSequence; //error

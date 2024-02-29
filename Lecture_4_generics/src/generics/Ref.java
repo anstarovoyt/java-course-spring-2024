@@ -1,7 +1,15 @@
 package generics;
 
 public class Ref<T> {
+
     private T value;
+
+    public Ref() {
+    }
+
+    public Ref(T value) {
+        this.value = value;
+    }
 
     public T getValue() {
         return value;
