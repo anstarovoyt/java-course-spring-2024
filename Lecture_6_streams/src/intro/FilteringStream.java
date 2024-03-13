@@ -5,21 +5,20 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public class Filtering {
+public class FilteringStream {
     public static void main(String[] args) {
-        System.out.println(new Filtering().search(List.of("test2", "test", "test", "xtest"), "t"));
+        System.out.println(new FilteringStream().search(List.of("test2", "test", "test", "xtest"), "t"));
     }
 
     Collection<String> search(
             Collection<String> elements, String prefix) {
-        List<String> result = new ArrayList<>();
-        for (String el : elements) {
-            if (el.startsWith(prefix)) result.add(capitalize(el));
-        }
-
-        Collections.sort(result);
-
-        return result;
+        return elements
+                .stream()
+                .filter(el -> el.startsWith(prefix))
+                .map(el -> capitalize(el))
+                .sorted()
+                .peek(el -> System.out.println(el))
+                .toList();
     }
 
     private String capitalize(String el) {
