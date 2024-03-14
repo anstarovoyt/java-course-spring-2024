@@ -1,4 +1,4 @@
-package terminal;
+package streams.terminal;
 
 import java.util.List;
 
