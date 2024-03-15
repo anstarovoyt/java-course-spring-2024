@@ -22,6 +22,12 @@ public class CustomFunctions {
         default String name() {
             return "processor";
         }
+
+        /**
+         * Own description of the behavior e.g. should be synced with {@link #name()}
+         */
+        @Override
+        String toString();
     }
 
     @FunctionalInterface
