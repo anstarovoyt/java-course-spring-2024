@@ -24,6 +24,7 @@ public class CustomFunctions {
         }
     }
 
+    @FunctionalInterface
     interface StringProcessor extends Processor<String> {
         @Override
         default void process(String el) {
