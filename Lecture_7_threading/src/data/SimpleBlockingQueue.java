@@ -20,7 +20,7 @@ public class SimpleBlockingQueue {
         return value;
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         SimpleBlockingQueue queue = new SimpleBlockingQueue();
 
         new Thread(() -> {
