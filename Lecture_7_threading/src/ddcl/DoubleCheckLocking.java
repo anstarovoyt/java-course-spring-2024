@@ -9,7 +9,7 @@ public class DoubleCheckLocking {
         }
 
         public String getValue() {
-            return Integer.toString(myValue);
+            return myValue.toString();
         }
     }
 
@@ -27,13 +27,22 @@ public class DoubleCheckLocking {
     }
 
     public static void main(String[] args) {
-        Thread thread1 = new Thread(() -> {
-            System.out.println(getInstance().getValue());
-        });
+        new Thread(() -> {
+            try {
+                Thread.sleep(50);
+                getInstance();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
 
         new Thread(() -> {
-            getInstance();
+            try {
+                Thread.sleep(100);
+                System.out.println(getInstance().getValue());
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }).start();
-        thread1.start();
     }
 }
