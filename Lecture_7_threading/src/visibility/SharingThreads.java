@@ -1,4 +1,4 @@
-package data;
+package visibility;
 
 public class SharingThreads {
 

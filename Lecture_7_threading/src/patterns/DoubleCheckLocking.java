@@ -1,4 +1,4 @@
-package ddcl;
+package patterns;
 
 public class DoubleCheckLocking {
     public static class Singleton {
