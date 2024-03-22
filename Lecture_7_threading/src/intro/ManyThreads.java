@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class ManyThreads {
+
+    public static final int THREADS_NUMBER = 50;
+
     public static void main(String[] args) throws InterruptedException {
         Runnable runnable = () -> {
             Stream<Long> generate = Stream.generate(() -> Math.round(Math.random() * 100));
@@ -16,7 +19,7 @@ public class ManyThreads {
         };
 
         List<Thread> threads = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < THREADS_NUMBER; i++) {
             Thread thread = new Thread(runnable);
             thread.start();
             threads.add(thread);
