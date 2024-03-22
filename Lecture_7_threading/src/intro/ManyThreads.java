@@ -18,7 +18,7 @@ public class ManyThreads {
             System.out.println(Arrays.toString(array));
         };
 
-        List<Thread> threads = new ArrayList<>();
+        List<Thread> threads = new ArrayList<>(THREADS_NUMBER);
         for (int i = 0; i < THREADS_NUMBER; i++) {
             Thread thread = new Thread(runnable);
             thread.start();
