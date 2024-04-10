@@ -1,0 +1,27 @@
+plugins {
+    id("me.champeau.jmh") version "0.7.2"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+//./gradlew cleanJmh jmh
+jmh {
+    fork = 1
+    iterations = 1
+    warmup = '1s'
+    warmupBatchSize = 2
+    warmupForks = 0
+    benchmarkMode = ['avgt']
+    timeUnit = 'ns'
+    warmupIterations = 1
+//    includes = ['Loops*']
+//    includes = ['StringConcat*']
+//    includes = ['DeadCode*']
+    includes = ['VolatileAccess*']
+}
