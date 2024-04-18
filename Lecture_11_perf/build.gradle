@@ -21,7 +21,8 @@ jmh {
     timeUnit = 'ns'
     warmupIterations = 1
 //    includes = ['Loops*']
-//    includes = ['StringConcat*']
+    includes = ['StringConcat*']
 //    includes = ['DeadCode*']
-    includes = ['VolatileAccess*']
+//    includes = ['VolatileAccess*']
+//    includes = ['Inlining*']
 }

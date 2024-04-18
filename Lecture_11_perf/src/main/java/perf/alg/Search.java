@@ -1,13 +1,13 @@
 package perf.alg;
 
-import java.util.Set;
+import java.util.List;
 
 public class Search {
 
     public static void main(String[] args) {
-        String[] products = generateDummyProducts(1000000);
-        ProductSearcher searcher = new ProductSearchArray(products);
-//        ProductSearcher searcher = new ProductSearchHashSet(products);
+        String[] products = generateDummyProducts(10000000);
+//        ProductSearcher searcher = new ProductSearchArrayList(products);
+        ProductSearcher searcher = new ProductSearchHashSet(products);
         long start = System.currentTimeMillis();
         boolean result = searcher.searchProduct("Specific Product Name");
         long endTime = System.currentTimeMillis();
@@ -20,7 +20,7 @@ public class Search {
         boolean searchProduct(String productName);
     }
 
-    private record ProductSearchArray(String[] products) implements ProductSearcher {
+    private record ProductSearchArrayList(String[] products) implements ProductSearcher {
 
         @Override
         public boolean searchProduct(String productName) {
@@ -35,10 +35,10 @@ public class Search {
 
     private static class ProductSearchHashSet implements ProductSearcher {
 
-        private final Set<String> products;
+        private final List<String> products;
 
         public ProductSearchHashSet(String[] products) {
-            this.products = Set.of(products);
+            this.products = List.of(products);
         }
 
         @Override

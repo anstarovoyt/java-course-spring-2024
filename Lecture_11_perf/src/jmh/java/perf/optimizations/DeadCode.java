@@ -10,7 +10,7 @@ public class DeadCode {
 
     @Benchmark
     public void objectCreation() {
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             new Object();
         }
     }
